@@ -1,0 +1,160 @@
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Subscribe To SHAKRS OFC";
+    Text = "Enjoy my Script Tips! KEY SYSTEM HAS ADDED NOW!"; 
+    Duration = 5;
+})
+
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/hoho_lib.lua", true))()
+local win = lib:Window("Wexal X","Hospital TYCOON",Color3.new(0.333333, 0.666667, 1))
+local tab = win:Tab("Buy")
+local tab2 = win:Tab("Buy")
+local label = tab:Label("Label", properties) --properties: {["Visible"] = flase}
+tab2:Button("Rejoin", function()
+     local TeleportService = game:GetService("TeleportService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local Rejoin = coroutine.create(function()
+    local Success, ErrorMessage = pcall(function()
+        TeleportService:Teleport(game.PlaceId, LocalPlayer)
+    end)
+
+    if ErrorMessage and not Success then
+        warn(ErrorMessage)
+    end
+end)
+
+coroutine.resume(Rejoin)
+end) 
+
+end)
+tab:Button("Buy dp_golden_dropper_1 Gamepass", function()
+    local args = {
+    [1] = "dp_golden_dropper_1",
+    [2] = "tycoon_button"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.PromptDeveloperProduct:InvokeServer(unpack(args))
+
+end)
+tab:Button("Buy Parking_Ambulance", function()
+    local args = {
+    [1] = "Parking_Ambulance_0"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.BuyButton:InvokeServer(unpack(args))
+
+end)
+tab:Button("Buy Parking_Ambulance_Garage_Owner", function()
+    local args = {
+    [1] = "Parking_Ambulance_Garage_Owner_0"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.BuyButton:InvokeServer(unpack(args))
+
+end)
+tab:Button("killSelf", function()
+    game:GetService("ReplicatedStorage").RemoteEvents.RIPME:FireServer()
+
+end)
+tab:Button("Food Giver No need Money", function()
+    local args = {
+    [1] = workspace.Tycoons.Tycoon_4.Purchases.CafeteriaSeller.Interact,
+    [2] = "tl_sandwich"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.vending_give:InvokeServer(unpack(args))
+local args = {
+    [1] = workspace.Tycoons.Tycoon_4.Purchases.CafeteriaSeller.Interact,
+    [2] = "tl_apple"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.vending_give:InvokeServer(unpack(args))
+
+end)
+tab:Button("Buy Premuim EmergencySign_0", function()
+    local args = {
+    [1] = "EmergencySign_0"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.BuyButton:InvokeServer(unpack(args))
+
+end)
+tab:Button("Join Get AutoCollect1", function()
+    local args = {
+    [1] = true
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.CheckJoinedGroup:InvokeServer(unpack(args))
+
+end)
+tab:Button("Buy Hire Doctor", function()
+    local args = {
+    [1] = "PatientRoom1Doctor"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.BuyButton:InvokeServer(unpack(args))
+
+end)
+tab:Button("Buy PatientRoom2Doctor Need 1 rebirt", function()
+    local args = {
+    [1] = "PatientRoom2Doctor"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.BuyButton:InvokeServer(unpack(args))
+
+end)
+tab:Button("Buy Golden Doctor Gamepass", function()
+    local args = {
+    [1] = "gp_golden_doctor_powers",
+    [2] = "shop"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.PromptGamePass:InvokeServer(unpack(args))
+
+end)
+tab:Button("Buy ManagerGamePass", function()
+    local args = {
+    [1] = "gp_manager_powers",
+    [2] = "shop"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.PromptGamePass:InvokeServer(unpack(args))
+
+end)
+tab:Button("Buy Nurse HIRE1", function()
+    local args = {
+    [1] = "Floor0Nurse"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.BuyButton:InvokeServer(unpack(args))
+
+end)
+local toggle = tab:Toggle("AutoCashCollect", false, function(val)
+_G.Cash = true
+while _G.Cash do
+wait(0.1)
+wait(.0.2) 
+local args = {
+    [1] = "Cash",
+    [2] = workspace.Tycoons.Tycoon_4.Environment.CashZone.CashArea.CashCollector
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.CollectCurrency:InvokeServer(unpack(args))
+
+    lib:Nof("Toggle:On", 3)
+end)
+toggle:NewText("CashCollectFree!")
+toggle:NewState(true)
+local slider = tab:Slider("Slider",1,100,30,function(val)
+    print(val)
+end)
+local drop = tab:Dropdown("Drop New", {"a", 1, 5466}, function(val)
+    print(val)
+end)
+drop:NewText("Drop New 2")
+drop:NewDrop({Npc,'Player,"Loots"})
+local txtbox = tab:Textbox("/Console","Dont Type",function(val)
+    print(val)
+end)
+lib:Nof("Successful Loaded_UI",3)
